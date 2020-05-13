@@ -21,7 +21,7 @@ app.get("/", function (request, response) {
 var SpotifyWebApi = require('spotify-web-api-node');
 
 // Replace with your redirect URI, required scopes, and show_dialog preference
-var redirectUri = `https://${process.env.PROJECT_DOMAIN}.glitch.me/callback`;
+var redirectUri = `https://${process.env.PROJECT_DOMAIN}.glitch.me/cb/ls.html`;
 var scopes = ['user-top-read'];
 var showDialog = true;
 
