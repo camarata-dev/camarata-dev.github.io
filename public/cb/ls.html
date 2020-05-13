@@ -7,6 +7,63 @@
       background-color: #009999
     }
   </style>
+    <style>
+      /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  float: right;
+  text-align: right;
+}
+      
+.right {
+  margin-left:auto;
+  margin-right:0;
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+/* Style the social media icons with color, if you want */
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+    </style>
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -40,10 +97,11 @@
             Latest videos
           </h1>
         </div>
-        <iframe src="https://player.twitch.tv/?autoplay=false&video=v617497143" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/videos/617497143?tt_content=text_link&tt_medium=vod_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Watch Coding our first site - Paranormal800 from Paranormal800 on www.twitch.tv</a>
+        <iframe class="right" src="https://player.twitch.tv/?autoplay=false&video=v617497143" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/videos/617497143?tt_content=text_link&tt_medium=vod_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Watch Coding our first site - Paranormal800 from Paranormal800 on www.twitch.tv</a>
       </main>
     </div>
     <footer>
+      <div class="icon-bar">
       <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FYoutube-Icon-Png-Clipart.png?v=1589318738976" alt="YouTube" height="35px" width="35px" onclick="window.open('https://www.youtube.com/channel/UCiGPljL9Aia-6kwzpt4-vZw', '_blank');"><br>
       
       <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Fstatuspage-icon.png?v=1589318964263" alt="StatusPage" height="35px" width="35px" onclick="window.open('https://p800.statuspage.io', '_blank');"><br>
@@ -51,7 +109,8 @@
       <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FDiscord-Logo-Black.png?v=1589319114660" alt="Discord" height="35px" width="35px" onclick="window.open('https://discord.gg/sQVkC7w', '_blank');"><br>
       
       <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ftwitch.png?v=1589318591177" alt="Twitch" height="35px" width="35px" onclick="window.open('https://twitch.tv/paranormal800', '_blank');"><br>
-    </footer>
+      </div>
+        </footer>
     <!-- Your web-app is https, so your scripts need to be too -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
