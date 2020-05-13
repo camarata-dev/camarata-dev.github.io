@@ -2,11 +2,53 @@
 <html>
   <head>
     <style>
-    body {
-      font-family: 'Ubuntu', sans-serif;
-      background-color: #009999
-    }
-  </style>
+      body {
+        font-family: "Ubuntu", sans-serif;
+        background-color: #009999;
+      }
+    </style>
+    <style>
+      .loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
+    <style>
+	.outerDiv
+	{
+		background-color: #006699;
+		color: #fff;
+		height: 400px;
+		width: 600px;
+		margin: 0px auto;
+		padding: 5px;
+	}
+	.leftDiv
+	{
+		background-color: #efefef;
+		color: #000;
+		height: 400px;
+		width: 48%;
+		float: left;
+	}
+	.rightDiv
+	{
+		background-color: #efefef;
+		color: #000;
+		height: 400px;
+		width: 48%;
+		float: right;
+	}			
+</style>
     <style>
       /*
  * @license
@@ -26,518 +68,581 @@
  * limitations under the License
  */
 
-* {
-  box-sizing: border-box;
-}
+      * {
+        box-sizing: border-box;
+      }
 
-html,
-body {
-  color: #444;
-  font-family: 'Helvetica', 'Verdana', sans-serif;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
+      html,
+      body {
+        color: #444;
+        font-family: "Helvetica", "Verdana", sans-serif;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
 
-html {
-  overflow: hidden;
-}
+      html {
+        overflow: hidden;
+      }
 
-body {
-  align-content: stretch;
-  align-items: stretch;
-  background: #ececec;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-}
+      body {
+        align-content: stretch;
+        align-items: stretch;
+        background: #ececec;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
 
-/**
+      /**
  * Header
  */
 
-.header {
-  align-content: center;
-  align-items: stretch;
-  background: #660033;
-  box-shadow:
-    0 4px 5px 0 rgba(0, 0, 0, 0.14),
-    0 2px 9px 1px rgba(0, 0, 0, 0.12),
-    0 4px 2px -2px rgba(0, 0, 0, 0.2);
-  color: #fff;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  font-size: 20px;
-  height: 56px;
-  justify-content: flex-start;
-  padding: 16px 16px 0 16px;
-  position: fixed;
-  transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-  width: 100%;
-  will-change: transform;
-  z-index: 1000;
-}
+      .header {
+        align-content: center;
+        align-items: stretch;
+        background: #660033;
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+          0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        font-size: 20px;
+        height: 56px;
+        justify-content: flex-start;
+        padding: 16px 16px 0 16px;
+        position: fixed;
+        transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
+        width: 100%;
+        will-change: transform;
+        z-index: 1000;
+      }
 
-.header h1 {
-  flex: 1;
-  font-size: 20px;
-  font-weight: 400;
-  margin: 0;
-}
+      .header h1 {
+        flex: 1;
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0;
+      }
 
-.right {
-  margin-left:auto;
-  margin-right:0;
-}
+      .right {
+        margin-left: auto;
+        margin-right: 0;
+      }
 
-.header button {
-  border: none;
-  cursor: pointer;
-  height: 24px;
-  margin-right: 16px;
-  opacity: 0.54;
-  outline: none;
-  overflow: hidden;
-  text-indent: -30000px;
-  transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
-  width: 24px;
-}
+      .header button {
+        border: none;
+        cursor: pointer;
+        height: 24px;
+        margin-right: 16px;
+        opacity: 0.54;
+        outline: none;
+        overflow: hidden;
+        text-indent: -30000px;
+        transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+        width: 24px;
+      }
 
-.header #butRefresh {
-  background: url(/images/refresh.svg) center center no-repeat;
-}
+      .header #butRefresh {
+        background: url(/images/refresh.svg)centercenterno-repeat;
+      }
 
-.header #butInstall {
-  background: url(/images/install.svg) center center no-repeat;
-}
+      .header #butInstall {
+        background: url(/images/install.svg)centercenterno-repeat;
+      }
 
-.header .powered-by {
-  color: white;
-  font-size: 0.6em;
-  text-decoration: none;
-}
+      .header .powered-by {
+        color: white;
+        font-size: 0.6em;
+        text-decoration: none;
+      }
 
-/**
+      /**
  * Loading spinner
  */
 
-.card-spinner {
-  background-color: rgba(255, 255, 255, 0.8);
-  height: 100%;
-  margin-left: -16px;
-  margin-top: -16px;
-  position: absolute;
-  width: 100%;
-}
+      .card-spinner {
+        background-color: rgba(255, 255, 255, 0.8);
+        height: 100%;
+        margin-left: -16px;
+        margin-top: -16px;
+        position: absolute;
+        width: 100%;
+      }
 
-.card-spinner svg {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
+      .card-spinner svg {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-.card-spinner svg circle {
-  animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
-  box-sizing: border-box;
-  stroke: #3f51b5;
-  stroke-width: 3px;
-  transform-origin: 50%;
-}
+      .card-spinner svg circle {
+        animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite,
+          rotate 1.6s linear infinite;
+        box-sizing: border-box;
+        stroke: #3f51b5;
+        stroke-width: 3px;
+        transform-origin: 50%;
+      }
 
-@keyframes rotate {
-  from { transform: rotate(0); }
-  to { transform: rotate(450deg); }
-}
+      @keyframes rotate {
+        from {
+          transform: rotate(0);
+        }
+        to {
+          transform: rotate(450deg);
+        }
+      }
 
-@keyframes line {
-  0% {
-    stroke-dasharray: 2, 85.964;
-    transform: rotate(0);
-  }
+      @keyframes line {
+        0% {
+          stroke-dasharray: 2, 85.964;
+          transform: rotate(0);
+        }
 
-  50% {
-    stroke-dasharray: 65.973, 21.9911;
-    stroke-dashoffset: 0;
-  }
+        50% {
+          stroke-dasharray: 65.973, 21.9911;
+          stroke-dashoffset: 0;
+        }
 
-  100% {
-    stroke-dasharray: 2, 85.964;
-    stroke-dashoffset: -65.973;
-    transform: rotate(90deg);
-  }
-}
+        100% {
+          stroke-dasharray: 2, 85.964;
+          stroke-dashoffset: -65.973;
+          transform: rotate(90deg);
+        }
+      }
 
-/**
+      /**
  * Icons
  */
 
-.icon {
-  background-repeat: no-repeat;
-  background-size: contain;
-}
+      .icon {
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
 
-.icon.add {
-  background-image: url("/images/add.svg");
-}
+      .icon.add {
+        background-image: url("/images/add.svg");
+      }
 
-.icon.clear-day {
-  background-image: url("/images/clear-day.svg");
-}
+      .icon.clear-day {
+        background-image: url("/images/clear-day.svg");
+      }
 
-.icon.clear-night {
-  background-image: url("/images/clear-night.svg");
-}
+      .icon.clear-night {
+        background-image: url("/images/clear-night.svg");
+      }
 
-.icon.rain {
-  background-image: url("/images/rain.svg");
-}
+      .icon.rain {
+        background-image: url("/images/rain.svg");
+      }
 
-.icon.snow {
-  background-image: url("/images/snow.svg");
-}
+      .icon.snow {
+        background-image: url("/images/snow.svg");
+      }
 
-.icon.sleet {
-  background-image: url("/images/sleet.svg");
-}
+      .icon.sleet {
+        background-image: url("/images/sleet.svg");
+      }
 
-.icon.wind {
-  background-image: url("/images/wind.svg");
-}
+      .icon.wind {
+        background-image: url("/images/wind.svg");
+      }
 
-.icon.fog {
-  background-image: url("/images/fog.svg");
-}
+      .icon.fog {
+        background-image: url("/images/fog.svg");
+      }
 
-.icon.cloudy {
-  background-image: url("/images/cloudy.svg");
-}
+      .icon.cloudy {
+        background-image: url("/images/cloudy.svg");
+      }
 
-.icon.partly-cloudy-day {
-  background-image: url("/images/partly-cloudy-day.svg");
-}
+      .icon.partly-cloudy-day {
+        background-image: url("/images/partly-cloudy-day.svg");
+      }
 
-.icon.partly-cloudy-night {
-  background-image: url("/images/partly-cloudy-night.svg");
-}
+      .icon.partly-cloudy-night {
+        background-image: url("/images/partly-cloudy-night.svg");
+      }
 
-.icon.hail {
-  background-image: url("/images/hail.svg");
-}
+      .icon.hail {
+        background-image: url("/images/hail.svg");
+      }
 
-.icon.thunderstorm {
-  background-image: url("/images/thunderstorm.svg");
-}
+      .icon.thunderstorm {
+        background-image: url("/images/thunderstorm.svg");
+      }
 
-.icon.tornado {
-  background-image: url("/images/tornado.svg");
-}
+      .icon.tornado {
+        background-image: url("/images/tornado.svg");
+      }
 
-/**
+      /**
  * Main body
  */
 
-.main {
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding-top: 60px;
-}
+      .main {
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-top: 60px;
+      }
 
-.main .fab {
-  background-color: #3f51b5;
-  border-radius: 50%;
-  bottom: 1rem;
-  height: 56px;
-  padding: 12px;
-  position: fixed;
-  right: 1rem;
-  width: 56px;
-  z-index: 1000;
-}
+      .main .fab {
+        background-color: #3f51b5;
+        border-radius: 50%;
+        bottom: 1rem;
+        height: 56px;
+        padding: 12px;
+        position: fixed;
+        right: 1rem;
+        width: 56px;
+        z-index: 1000;
+      }
 
-.main .fab .icon {
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-}
+      .main .fab .icon {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+      }
 
-/**
+      /**
  * Add dialog
  */
 
-#addDialogContainer {
-  background: rgba(0, 0, 0, 0.57);
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
-  width: 100%;
-  will-change: opacity;
-}
+      #addDialogContainer {
+        background: rgba(0, 0, 0, 0.57);
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+        width: 100%;
+        will-change: opacity;
+      }
 
-#addDialogContainer.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
+      #addDialogContainer.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
 
-.dialog {
-  background: #fff;
-  border-radius: 2px;
-  box-shadow:
-    0 0 14px rgba(0, 0, 0, 0.24),
-    0 14px 28px rgba(0, 0, 0, 0.48);
-  left: 50%;
-  min-width: 280px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%) translateY(30px);
-  transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
-}
+      .dialog {
+        background: #fff;
+        border-radius: 2px;
+        box-shadow: 0 0 14px rgba(0, 0, 0, 0.24),
+          0 14px 28px rgba(0, 0, 0, 0.48);
+        left: 50%;
+        min-width: 280px;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%) translateY(30px);
+        transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+      }
 
-.dialog > div {
-  padding-left: 24px;
-  padding-right: 24px;
-}
+      .dialog > div {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
 
-.dialog-title {
-  font-size: 1.25em;
-  padding-top: 20px;
-}
+      .dialog-title {
+        font-size: 1.25em;
+        padding-top: 20px;
+      }
 
-.dialog-body {
-  padding-bottom: 24px;
-  padding-top: 20px;
-}
+      .dialog-body {
+        padding-bottom: 24px;
+        padding-top: 20px;
+      }
 
-.dialog-body select {
-  width: 100%;
-}
+      .dialog-body select {
+        width: 100%;
+      }
 
-.dialog-buttons {
-  float: right;
-  padding-bottom: 16px;
-  padding-right: 17px !important;
-}
+      .dialog-buttons {
+        float: right;
+        padding-bottom: 16px;
+        padding-right: 17px !important;
+      }
 
-.dialog .button {
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  text-transform: uppercase;
-}
+      .dialog .button {
+        background: transparent;
+        border: none;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
 
-/**
+      /**
  * Weather forecast card
  */
 
-.weather-card {
-  background: #fff;
-  border-radius: 2px;
-  box-shadow:
-    0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  margin: 16px;
-  padding: 16px;
-  position: relative;
-}
+      .weather-card {
+        background: #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+          0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        box-sizing: border-box;
+        margin: 16px;
+        padding: 16px;
+        position: relative;
+      }
 
-.weather-card .remove-city {
-  background-color: transparent;
-  border: none;
-  float: right;
-  font-size: x-large;
-}
+      .weather-card .remove-city {
+        background-color: transparent;
+        border: none;
+        float: right;
+        font-size: x-large;
+      }
 
-.weather-card .location {
-  font-size: 1.75em;
-}
+      .weather-card .location {
+        font-size: 1.75em;
+      }
 
-.weather-card .date,
-.weather-card .description {
-  font-size: 1.25em;
-}
+      .weather-card .date,
+      .weather-card .description {
+        font-size: 1.25em;
+      }
 
-.weather-card .current {
-  display: flex;
-}
+      .weather-card .current {
+        display: flex;
+      }
 
-.weather-card .current .icon {
-  height: 128px;
-  width: 128px;
-}
+      .weather-card .current .icon {
+        height: 128px;
+        width: 128px;
+      }
 
-.weather-card .current .visual {
-  display: flex;
-  font-size: 4em;
-}
+      .weather-card .current .visual {
+        display: flex;
+        font-size: 4em;
+      }
 
-.weather-card .current .visual .scale {
-  font-size: 0.5em;
-  vertical-align: super;
-}
+      .weather-card .current .visual .scale {
+        font-size: 0.5em;
+        vertical-align: super;
+      }
 
-.weather-card .current .visual,
-.weather-card .current .description {
-  flex-grow: 1;
-}
+      .weather-card .current .visual,
+      .weather-card .current .description {
+        flex-grow: 1;
+      }
 
-.weather-card .current .description .label {
-  color: #666;
-}
+      .weather-card .current .description .label {
+        color: #666;
+      }
 
-.weather-card .future {
-  display: flex;
-}
+      .weather-card .future {
+        display: flex;
+      }
 
-.weather-card .future .oneday {
-  flex-grow: 1;
-  text-align: center;
-}
+      .weather-card .future .oneday {
+        flex-grow: 1;
+        text-align: center;
+      }
 
-.weather-card .future .oneday .icon {
-  height: 64px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 64px;
-}
+      .weather-card .future .oneday .icon {
+        height: 64px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 64px;
+      }
 
-.weather-card .future .oneday .temp-high,
-.weather-card .future .oneday .temp-low {
-  display: inline-block;
-}
+      .weather-card .future .oneday .temp-high,
+      .weather-card .future .oneday .temp-low {
+        display: inline-block;
+      }
 
-.weather-card .future .oneday .temp-low {
-  color: #666;
-}
+      .weather-card .future .oneday .temp-low {
+        color: #666;
+      }
 
-/**
+      /**
  * Media query to adjust size of content for small screens
  */
 
-@media (max-width: 450px) {
-  .weather-card .date,
-  .weather-card .description {
-    font-size: 0.9em;
-  }
+      @media (max-width: 450px) {
+        .weather-card .date,
+        .weather-card .description {
+          font-size: 0.9em;
+        }
 
-  .weather-card .current .icon {
-    height: 96px;
-    width: 96px;
-  }
+        .weather-card .current .icon {
+          height: 96px;
+          width: 96px;
+        }
 
-  .weather-card .current .visual {
-    font-size: 3em;
-  }
+        .weather-card .current .visual {
+          font-size: 3em;
+        }
 
-  .weather-card .future .oneday .icon {
-    height: 32px;
-    width: 32px;
-  }
-}
-
+        .weather-card .future .oneday .icon {
+          height: 32px;
+          width: 32px;
+        }
+      }
     </style>
     <style>
       /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
-.icon-bar {
-  position: fixed;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  float: right;
-  text-align: right;
-  margin-left: auto;
-  margin-right: 0;
-}
-      
-.right {
-  margin-left: auto;
-  margin-right: 0;
-}
+      .icon-bar {
+        position: fixed;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        float: right;
+        text-align: right;
+        margin-left: auto;
+        margin-right: 0;
+      }
 
-/* Style the icon bar links */
-.icon-bar a {
-  display: block;
-  text-align: center;
-  padding: 16px;
-  transition: all 0.3s ease;
-  color: white;
-  font-size: 20px;
-}
+      .right {
+        margin-left: auto;
+        margin-right: 0;
+      }
 
-/* Style the social media icons with color, if you want */
-.icon-bar a:hover {
-  background-color: #000;
-}
+      /* Style the icon bar links */
+      .icon-bar a {
+        display: block;
+        text-align: center;
+        padding: 16px;
+        transition: all 0.3s ease;
+        color: white;
+        font-size: 20px;
+      }
 
-.facebook {
-  background: #3B5998;
-  color: white;
-}
+      /* Style the social media icons with color, if you want */
+      .icon-bar a:hover {
+        background-color: #000;
+      }
 
-.twitter {
-  background: #55ACEE;
-  color: white;
-}
+      .facebook {
+        background: #3B5998;
+        color: white;
+      }
 
-.google {
-  background: #dd4b39;
-  color: white;
-}
+      .twitter {
+        background: #55ACEE;
+        color: white;
+      }
 
-.linkedin {
-  background: #007bb5;
-  color: white;
-}
+      .google {
+        background: #dd4b39;
+        color: white;
+      }
 
-.youtube {
-  background: #bb0000;
-  color: white;
-}
+      .linkedin {
+        background: #007bb5;
+        color: white;
+      }
+
+      .youtube {
+        background: #bb0000;
+        color: white;
+      }
     </style>
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <!-- Load font awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Closed Beta | Paranormal</title>
-    <link id="favicon" rel="icon" href="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ffavicon.ico?v=1589047211082" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ffavicon.ico?v=1589047211082"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
   </head>
   <body>
+        <div class"loader"></div>
     <header class="mdc-top-app-bar">
-  <div class="mdc-top-app-bar__row">
-    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-      <h3>Paranormal</h3>
-    </section>
-    <div class="right">
-      <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FYoutube-Icon-Png-Clipart.png?v=1589318738976" alt="YouTube" height="35px" width="35px" onclick="window.open('https://www.youtube.com/channel/UCiGPljL9Aia-6kwzpt4-vZw', '_blank');">
-      <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Fstatuspage-icon.png?v=1589318964263" alt="StatusPage" height="35px" width="35px" onclick="window.open('https://p800.statuspage.io', '_blank');">
-      <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FDiscord-Logo-Black.png?v=1589319114660" alt="Discord" height="35px" width="35px" onclick="window.open('https://discord.gg/sQVkC7w', '_blank');">
-      <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ftwitch.png?v=1589318591177" alt="Twitch" height="35px" width="35px" onclick="window.open('https://twitch.tv/paranormal800', '_blank');">
-    </div>
-  </div>
-</header>
-    <br>
-    <br>
-    <br>
-    <br>
+      <div class="mdc-top-app-bar__row">
+        <section
+          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+        >
+          <h3>Paranormal</h3>
+        </section>
+        <div class="icon-bar" id="right">
+  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+  <a href="#" class="google"><i class="fa fa-google"></i></a>
+  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+</div>
+        <div class="right">
+          <img
+            src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FYoutube-Icon-Png-Clipart.png?v=1589318738976"
+            alt="YouTube"
+            height="35px"
+            width="35px"
+            onclick="window.open('https://www.youtube.com/channel/UCiGPljL9Aia-6kwzpt4-vZw', '_blank');"
+          />
+          <img
+            src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Fstatuspage-icon.png?v=1589318964263"
+            alt="StatusPage"
+            height="35px"
+            width="35px"
+            onclick="window.open('https://p800.statuspage.io', '_blank');"
+          />
+          <img
+            src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FDiscord-Logo-Black.png?v=1589319114660"
+            alt="Discord"
+            height="35px"
+            width="35px"
+            onclick="window.open('https://discord.gg/sQVkC7w', '_blank');"
+          />
+          <img
+            src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ftwitch.png?v=1589318591177"
+            alt="Twitch"
+            height="35px"
+            width="35px"
+            onclick="window.open('https://twitch.tv/paranormal800', '_blank');"
+          />
+        </div>
+        <div class="outerDiv">
+			<div class="rightDiv">
+				This is Right DIV.
+			</div>		
+			<div "style: clear:both;"></div>
+		</div>
+      </div>
+    </header>
+    <br />
+    <br />
+    <br />
+    <br />
     <div class="main">
       <main>
         <div align="center">
@@ -545,24 +650,63 @@ body {
             Latest videos
           </h1>
         </div>
-        <iframe src="https://player.twitch.tv/?autoplay=false&video=v619413515" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/videos/619413515?tt_content=text_link&tt_medium=vod_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Watch Quarantine Coding (Coding our first site - Part 2) from Paranormal800 on www.twitch.tv</a>
+        <iframe
+          src="https://player.twitch.tv/?autoplay=false&video=v619413515"
+          frameborder="0"
+          allowfullscreen="true"
+          scrolling="no"
+          height="378"
+          width="620"
+        ></iframe
+        ><a
+          href="https://www.twitch.tv/videos/619413515?tt_content=text_link&tt_medium=vod_embed"
+          style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;"
+          >Watch Quarantine Coding (Coding our first site - Part 2) from
+          Paranormal800 on www.twitch.tv</a
+        >
       </main>
     </div>
     <footer>
       <div class="icon-bar">
-      <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FYoutube-Icon-Png-Clipart.png?v=1589318738976" alt="YouTube" height="35px" width="35px" onclick="window.open('https://www.youtube.com/channel/UCiGPljL9Aia-6kwzpt4-vZw', '_blank');"><br>
-      
-      <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Fstatuspage-icon.png?v=1589318964263" alt="StatusPage" height="35px" width="35px" onclick="window.open('https://p800.statuspage.io', '_blank');"><br>
-      
-      <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FDiscord-Logo-Black.png?v=1589319114660" alt="Discord" height="35px" width="35px" onclick="window.open('https://discord.gg/sQVkC7w', '_blank');"><br>
-      
-      <img src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ftwitch.png?v=1589318591177" alt="Twitch" height="35px" width="35px" onclick="window.open('https://twitch.tv/paranormal800', '_blank');"><br>
+        <img
+          src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FYoutube-Icon-Png-Clipart.png?v=1589318738976"
+          alt="YouTube"
+          height="35px"
+          width="35px"
+          onclick="window.open('https://www.youtube.com/channel/UCiGPljL9Aia-6kwzpt4-vZw', '_blank');"
+        /><br />
+
+        <img
+          src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Fstatuspage-icon.png?v=1589318964263"
+          alt="StatusPage"
+          height="35px"
+          width="35px"
+          onclick="window.open('https://p800.statuspage.io', '_blank');"
+        /><br />
+
+        <img
+          src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FDiscord-Logo-Black.png?v=1589319114660"
+          alt="Discord"
+          height="35px"
+          width="35px"
+          onclick="window.open('https://discord.gg/sQVkC7w', '_blank');"
+        /><br />
+
+        <img
+          src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ftwitch.png?v=1589318591177"
+          alt="Twitch"
+          height="35px"
+          width="35px"
+          onclick="window.open('https://twitch.tv/paranormal800', '_blank');"
+        /><br />
       </div>
-        </footer>
+    </footer>
     <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-2.2.1.min.js"
+      integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+      crossorigin="anonymous"
+    ></script>
     <script src="/client.js"></script>
   </body>
 </html>
