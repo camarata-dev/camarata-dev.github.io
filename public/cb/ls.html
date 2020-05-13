@@ -2,53 +2,102 @@
 <html>
   <head>
     <style>
-      body {
-        font-family: "Ubuntu", sans-serif;
-        background-color: #009999;
+      /* Center the loader */
+      #loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+      }
+
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Add animation to "page content" */
+      .animate-bottom {
+        position: relative;
+        -webkit-animation-name: animatebottom;
+        -webkit-animation-duration: 1s;
+        animation-name: animatebottom;
+        animation-duration: 1s;
+      }
+
+      @-webkit-keyframes animatebottom {
+        from {
+          bottom: -100px;
+          opacity: 0;
+        }
+        to {
+          bottom: 0px;
+          opacity: 1;
+        }
+      }
+
+      @keyframes animatebottom {
+        from {
+          bottom: -100px;
+          opacity: 0;
+        }
+        to {
+          bottom: 0;
+          opacity: 1;
+        }
+      }
+
+      #myDiv {
+        display: none;
+        text-align: center;
       }
     </style>
     <style>
-      .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+      .outerDiv {
+        background-color: #006699;
+        color: #fff;
+        height: 400px;
+        width: 600px;
+        margin: 0px auto;
+        padding: 5px;
+      }
+      .leftDiv {
+        background-color: #efefef;
+        color: #000;
+        height: 400px;
+        width: 48%;
+        float: left;
+      }
+      .rightDiv {
+        background-color: #efefef;
+        color: #000;
+        height: 400px;
+        width: 48%;
+        float: right;
+      }
     </style>
-    <style>
-	.outerDiv
-	{
-		background-color: #006699;
-		color: #fff;
-		height: 400px;
-		width: 600px;
-		margin: 0px auto;
-		padding: 5px;
-	}
-	.leftDiv
-	{
-		background-color: #efefef;
-		color: #000;
-		height: 400px;
-		width: 48%;
-		float: left;
-	}
-	.rightDiv
-	{
-		background-color: #efefef;
-		color: #000;
-		height: 400px;
-		width: 48%;
-		float: right;
-	}			
-</style>
     <style>
       /*
  * @license
@@ -546,6 +595,11 @@
         background: #bb0000;
         color: white;
       }
+      
+      .fa-discord {
+  color: orange;
+        background-color: black;
+}
     </style>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu"
@@ -559,7 +613,10 @@
       crossorigin="anonymous"
     />
     <!-- Load font awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Closed Beta | Paranormal</title>
     <link
       id="favicon"
@@ -585,122 +642,82 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
   </head>
-  <body>
-        <div class"loader"></div>
-    <header class="mdc-top-app-bar">
-      <div class="mdc-top-app-bar__row">
-        <section
-          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
-        >
-          <h3>Paranormal</h3>
-        </section>
-        <div class="icon-bar" id="right">
-  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-  <a href="#" class="google"><i class="fa fa-google"></i></a>
-  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
-</div>
-        <div class="right">
+  <body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+      <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+          <section
+            class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
+          >
+            <h3>Paranormal</h3>
+          </section>
+          <div class="icon-bar" id="right">
+            <a href="#" class="discord"><i class="fab fa-discord"></i></a>
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="google"><i class="fa fa-google"></i></a>
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+          </div>
+      </header>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="main">
+        <main>
+          <div align="center">
+            <h1>
+              Latest videos
+            </h1>
+          </div>
+          <iframe
+            src="https://player.twitch.tv/?autoplay=false&video=v619413515"
+            frameborder="0"
+            allowfullscreen="true"
+            scrolling="no"
+            height="378"
+            width="620"
+          ></iframe
+          >
+        </main>
+      </div>
+      <footer>
+        <div class="icon-bar">
           <img
             src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FYoutube-Icon-Png-Clipart.png?v=1589318738976"
             alt="YouTube"
             height="35px"
             width="35px"
             onclick="window.open('https://www.youtube.com/channel/UCiGPljL9Aia-6kwzpt4-vZw', '_blank');"
-          />
+          /><br />
+
           <img
             src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Fstatuspage-icon.png?v=1589318964263"
             alt="StatusPage"
             height="35px"
             width="35px"
             onclick="window.open('https://p800.statuspage.io', '_blank');"
-          />
+          /><br />
+
           <img
             src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FDiscord-Logo-Black.png?v=1589319114660"
             alt="Discord"
             height="35px"
             width="35px"
             onclick="window.open('https://discord.gg/sQVkC7w', '_blank');"
-          />
+          /><br />
+
           <img
             src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ftwitch.png?v=1589318591177"
             alt="Twitch"
             height="35px"
             width="35px"
             onclick="window.open('https://twitch.tv/paranormal800', '_blank');"
-          />
+          /><br />
         </div>
-        <div class="outerDiv">
-			<div class="rightDiv">
-				This is Right DIV.
-			</div>		
-			<div "style: clear:both;"></div>
-		</div>
-      </div>
-    </header>
-    <br />
-    <br />
-    <br />
-    <br />
-    <div class="main">
-      <main>
-        <div align="center">
-          <h1>
-            Latest videos
-          </h1>
-        </div>
-        <iframe
-          src="https://player.twitch.tv/?autoplay=false&video=v619413515"
-          frameborder="0"
-          allowfullscreen="true"
-          scrolling="no"
-          height="378"
-          width="620"
-        ></iframe
-        ><a
-          href="https://www.twitch.tv/videos/619413515?tt_content=text_link&tt_medium=vod_embed"
-          style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;"
-          >Watch Quarantine Coding (Coding our first site - Part 2) from
-          Paranormal800 on www.twitch.tv</a
-        >
-      </main>
+      </footer>
     </div>
-    <footer>
-      <div class="icon-bar">
-        <img
-          src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FYoutube-Icon-Png-Clipart.png?v=1589318738976"
-          alt="YouTube"
-          height="35px"
-          width="35px"
-          onclick="window.open('https://www.youtube.com/channel/UCiGPljL9Aia-6kwzpt4-vZw', '_blank');"
-        /><br />
-
-        <img
-          src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Fstatuspage-icon.png?v=1589318964263"
-          alt="StatusPage"
-          height="35px"
-          width="35px"
-          onclick="window.open('https://p800.statuspage.io', '_blank');"
-        /><br />
-
-        <img
-          src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FDiscord-Logo-Black.png?v=1589319114660"
-          alt="Discord"
-          height="35px"
-          width="35px"
-          onclick="window.open('https://discord.gg/sQVkC7w', '_blank');"
-        /><br />
-
-        <img
-          src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ftwitch.png?v=1589318591177"
-          alt="Twitch"
-          height="35px"
-          width="35px"
-          onclick="window.open('https://twitch.tv/paranormal800', '_blank');"
-        /><br />
-      </div>
-    </footer>
     <!-- Your web-app is https, so your scripts need to be too -->
     <script
       src="https://code.jquery.com/jquery-2.2.1.min.js"
@@ -708,5 +725,17 @@
       crossorigin="anonymous"
     ></script>
     <script src="/client.js"></script>
+    <script>
+      var myVar;
+
+      function myFunction() {
+        myVar = setTimeout(showPage, 3000);
+      }
+
+      function showPage() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("myDiv").style.display = "block";
+      }
+    </script>
   </body>
 </html>
