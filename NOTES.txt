@@ -1,0 +1,16 @@
+Hey Everyone!
+
+Welcome back to part 2 of Coding our first site. I have created a closed beta for the site. Let's see it.
+
+People can fill it out and get an email back with the login link. Here, we added Material CSS to our site compared to
+the old one, with multiple CSS systems.
+
+Material (in my opinion) is the best CSS system and looks the best.
+
+I have also created a StatusPage for page incident reporting.
+
+Looks great! Now, we will start editing.
+
+Please give me one second. I will be right back!
+
+I'm back!
