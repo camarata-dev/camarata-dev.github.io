@@ -7,3 +7,9 @@ It redirects you to the new page. It has a cool login, similar to the beta.
 Boom! It is very similar to the beta. So, let's change it.
 
 Alright.
+
+The center of the loader now looks very cool. Let's try to change more...
+
+And now it adds a shrug. We can randomize messages, too, to make it look more like a traditional load.
+
+Anyway, thanks for watching! Have a nice day!

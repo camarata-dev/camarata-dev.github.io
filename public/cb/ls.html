@@ -6,7 +6,7 @@
         margin: 0;
         padding: 0;
         background: #292c2f;
-        background
+        background-image: url('https://cdn.glitch.com/eb22d8bb-a782-42b2-a2fb-cbf6af1dd62d%2Fbackground.jpg')
         color: #292c2f;
       }
       .main {
@@ -202,13 +202,13 @@
         border-bottom: 16px solid red;
         border-left: 16px solid pink;
       }
-      
+
       .loader {
-  border-top: 16px solid blue;
-  border-right: 16px solid green;
-  border-bottom: 16px solid red;
-  border-left: 16px solid pink;
-}
+        border-top: 16px solid blue;
+        border-right: 16px solid green;
+        border-bottom: 16px solid red;
+        border-left: 16px solid pink;
+      }
 
       @-webkit-keyframes spin {
         0% {
@@ -351,9 +351,9 @@
         background: orange;
         color: white;
       }
-      
+
       #loader {
-        background-image: url('https://cdn.glitch.com/eb22d8bb-a782-42b2-a2fb-cbf6af1dd62d%2Fbackground.jpg')
+        background-image: url("https://cdn.glitch.com/eb22d8bb-a782-42b2-a2fb-cbf6af1dd62d%2Fbackground.jpg");
       }
     </style>
     <link
@@ -398,7 +398,14 @@
     />
   </head>
   <body onload="myFunction()" style="margin:0;">
-    <div id="loader"></div>
+    <div id="loader">
+      <br /><br /><br /><br />
+      <div align="center">
+        <h1>
+          ¯\_(ツ)_/¯
+        </h1>
+      </div>
+    </div>
     <div style="display:none;" id="myDiv" class="animate-bottom">
       <header class="mdc-top-app-bar">
         <div class="mdc-top-app-bar__row">
@@ -438,19 +445,25 @@
             </h1>
           </div>
           <iframe
-            src="https://player.twitch.tv/?autoplay=false&video=v619413515"
+            src="https://player.twitch.tv/?autoplay=false&video=v621089384"
             frameborder="0"
             allowfullscreen="true"
             scrolling="no"
             height="378"
             width="620"
-          ></iframe>
+          ></iframe
+          ><a
+            href="https://www.twitch.tv/videos/621089384?tt_content=text_link&tt_medium=vod_embed"
+            style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;"
+            >Watch Quarantine Coding - We finished the beta! from Paranormal800
+            on www.twitch.tv</a
+          >
           <footer class="footer-distributed">
             <div class="footer-left">
               <h3>paranormal</h3>
 
               <p class="footer-links">
-                <a href="https://pnew.glitch.me/cb/ls.html">Home</a>
+                <a href="https://pnew.glitch.me">Logout</a>
                 ·
                 <a
                   href="https://cdn.glitch.com/eb22d8bb-a782-42b2-a2fb-cbf6af1dd62d%2FScreen%20Shot%202020-05-13%20at%203.18.14%20PM.pdf?v=1589408406828"
@@ -478,8 +491,7 @@
           </footer>
         </main>
       </div>
-      <footer>
-      </footer>
+      <footer></footer>
     </div>
     <!-- Your web-app is https, so your scripts need to be too -->
     <script
