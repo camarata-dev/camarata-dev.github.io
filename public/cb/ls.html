@@ -6,7 +6,7 @@
         margin: 0;
         padding: 0;
         background: #292c2f;
-        background-color: #292c2f;
+        background
         color: #292c2f;
       }
       .main {
@@ -191,14 +191,24 @@
         margin: -75px 0 0 -75px;
         border: 16px solid #f3f3f3;
         border-radius: 50%;
-        border-top: 16px solid #3498db;
+        border-top: 16px solid blue;
         width: 120px;
         height: 120px;
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
-        background-color: red;
+        background-color: grey;
         color: lightblue;
+        border-right: 16px solid green;
+        border-bottom: 16px solid red;
+        border-left: 16px solid pink;
       }
+      
+      .loader {
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+}
 
       @-webkit-keyframes spin {
         0% {
@@ -341,6 +351,10 @@
         background: orange;
         color: white;
       }
+      
+      #loader {
+        background-image: url('https://cdn.glitch.com/eb22d8bb-a782-42b2-a2fb-cbf6af1dd62d%2Fbackground.jpg')
+      }
     </style>
     <link
       href="https://fonts.googleapis.com/css?family=Ubuntu"
@@ -436,7 +450,7 @@
               <h3>paranormal</h3>
 
               <p class="footer-links">
-                <a href="#">Home</a>
+                <a href="https://pnew.glitch.me/cb/ls.html">Home</a>
                 ·
                 <a
                   href="https://cdn.glitch.com/eb22d8bb-a782-42b2-a2fb-cbf6af1dd62d%2FScreen%20Shot%202020-05-13%20at%203.18.14%20PM.pdf?v=1589408406828"
@@ -465,39 +479,6 @@
         </main>
       </div>
       <footer>
-        <!-- <div class="icon-bar">
-          <img
-            src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FYoutube-Icon-Png-Clipart.png?v=1589318738976"
-            alt="YouTube"
-            height="35px"
-            width="35px"
-            onclick="window.open('https://www.youtube.com/channel/UCiGPljL9Aia-6kwzpt4-vZw', '_blank');"
-          /><br />
-
-          <img
-            src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Fstatuspage-icon.png?v=1589318964263"
-            alt="StatusPage"
-            height="35px"
-            width="35px"
-            onclick="window.open('https://p800.statuspage.io', '_blank');"
-          /><br />
-
-          <img
-            src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2FDiscord-Logo-Black.png?v=1589319114660"
-            alt="Discord"
-            height="35px"
-            width="35px"
-            onclick="window.open('https://discord.gg/sQVkC7w', '_blank');"
-          /><br />
-
-          <img
-            src="https://cdn.glitch.com/8984676c-a8d5-4d82-93de-24e3b3c160c2%2Ftwitch.png?v=1589318591177"
-            alt="Twitch"
-            height="35px"
-            width="35px"
-            onclick="window.open('https://twitch.tv/paranormal800', '_blank');"
-          /><br />
-        </div> -->
       </footer>
     </div>
     <!-- Your web-app is https, so your scripts need to be too -->

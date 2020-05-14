@@ -1,18 +1,9 @@
-Hey Everyone!
+Hi Everyone!
 
-Welcome back to part 2 of Coding our first site. I have created a closed beta for the site. Let's see it.
+Welcome back to another stream! I have finished up the beta and made it public. Let's test it.
 
-People can fill it out and get an email back with the login link. Here, we added Material CSS to our site compared to
-the old one, with multiple CSS systems.
+It redirects you to the new page. It has a cool login, similar to the beta.
 
-Material (in my opinion) is the best CSS system and looks the best.
+Boom! It is very similar to the beta. So, let's change it.
 
-I have also created a StatusPage for page incident reporting.
-
-Looks great! Now, we will start editing.
-
-Please give me one second. I will be right back!
-
-I'm back!
-
-Thanks for watching this short episode! Please follow, like + subscribe, and sign up for the beta at https://pcb.glitch.me!
+Alright.
