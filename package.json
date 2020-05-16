@@ -1,7 +1,7 @@
 {
-  "name": "my-glitch-app",
+  "name": "pnew",
   "version": "0.0.1",
-  "description": "What am I about?",
+  "description": "Paranormal HTML wrapper",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -14,7 +14,7 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/welcome-project"
+    "url": "https://glitch.com/edit/#!/pnew"
   },
   "license": "MIT",
   "keywords": [
