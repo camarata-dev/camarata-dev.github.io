@@ -142,7 +142,7 @@ if (location.protocol != 'https:') {
  <script type="text/javascript">
 
     window.onAmazonLoginReady = function() {
-      amazon.Login.setClientId('process.env.A-CLIENT-ID');
+      amazon.Login.setClientId('process.env.A_CLIENTID');
     };
     (function(d) {
       var a = d.createElement('script'); a.type = 'text/javascript';
@@ -151,6 +151,18 @@ if (location.protocol != 'https:') {
       d.getElementById('amazon-root').appendChild(a);
     })(document);
 
+</script>
+    <script type="text/javascript">
+    document.getElementById('LoginWithAmazon').onclick = function() {
+        options = {}
+        options.scope = 'profile';
+        options.scope_data = {
+            'profile' : {'essential': false} 
+        };
+        amazon.Login.authorize(options,
+            'https://pnew.glitch.me/cb/ls.html');
+        return false;
+    };
 </script>
     <div class="main">
     <p class="sign" align="center">Sign in</p>
