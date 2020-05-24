@@ -138,19 +138,37 @@ if (location.protocol != 'https:') {
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
+    <div id="amazon-root"></div>
+ <script type="text/javascript">
+
+    window.onAmazonLoginReady = function() {
+      amazon.Login.setClientId('process.env.A-CLIENT-ID');
+    };
+    (function(d) {
+      var a = d.createElement('script'); a.type = 'text/javascript';
+      a.async = true; a.id = 'amazon-login-sdk';
+      a.src = 'https://assets.loginwithamazon.com/sdk/na/login1.js';
+      d.getElementById('amazon-root').appendChild(a);
+    })(document);
+
+</script>
     <div class="main">
     <p class="sign" align="center">Sign in</p>
     <form class="form1">
       <button class="btn btn-primary" id="login" style="margin-left: 55px; margin-right: 55px;">Login with Spotify</button>
       <br>
       <br>
+      <a href id="LoginWithAmazon">
+    <img style="margin-left: 110px" border="0" alt="Login with Amazon"
+        src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+        width="156" height="32" />
+ </a>
       <br>
       <br>
       <br>
       <br>
       <br>
-      <br>
-      <small style="margin-left: 11px">By linking your Spotify, you agree to the scopes and have read the <a href="https://paranormal.glitch.me/legal/pp.html" target="_blank">ToS</a>.</small>
+      <small style="margin-left: 11px">By linking via OAuth, you agree to the scopes and have read the <a href="https://paranormal.glitch.me/legal/pp.html" target="_blank">ToS</a>.</small>
     <main>
       <div id="data-container">
         <ol>
