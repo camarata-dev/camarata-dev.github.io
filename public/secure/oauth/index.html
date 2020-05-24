@@ -4,6 +4,57 @@
 <!DOCTYPE html>
 <html>
   <head>
+        <style>
+        /* BASE */
+
+        html { font-size:100%; }
+        body { padding: 40px 0 20px; margin: 0; font: 13px/1.333 "lucida grande", tahoma, sans-serif; color: #333; background: #fff;}
+
+        a, a:visited { color: #980905; }
+        a:hover, a:focus, a:active { text-decoration: none; }
+
+        h1 { margin: 0 0 0.5em; font-size: 28px;  font-weight: normal; }
+        h2 { margin: 0 0 0.75em; font-size: 15px; }
+        p { margin: 0 0 1.333em; }
+        em { font-style: italic; }
+        table { border-collapse: separate; border-spacing: 0; margin:  0; vertical-align: middle; }
+        th { font-weight: bold; }
+        th, td { padding: 5px 25px 5px 5px; text-align: left; vertical-align: middle; }
+        pre, code { font-family: monospace, sans-serif; font-size: 1em; color:#080; }
+        pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+        ul { list-style: square; margin: 1em 0 1em 0px; padding: 0; }
+
+        /* TEMPLATE */
+
+        .container { position:relative; overflow:hidden; max-width: 600px; _width: 600px; padding: 40px 60px; border: 1px solid #ccc; margin: 0 auto; background: #fff; }
+
+        .container pre,
+        .container .prettyprint { padding: 0; border: 0; margin: 0 0 20px; background: #fff; }
+
+        .ribbon { position: absolute; top: -1px; right: -1px; opacity: 0.9; }
+        .ribbon:hover, .ribbon:focus, .ribbon:active { opacity: 1; }
+        .ribbon img { display: block; border: 0; }
+
+        .header { padding-right: 80px; }
+        .header p { font-size: 18px; color: #808080; }
+
+        .section { margin: 40px 0 20px; }
+
+        .example { padding: 20px; border: 1px solid #ccc; margin: 10px -20px 20px; }
+        .example p { margin: 15px 0 0; }
+        .example p:first-child { margin: 0; }
+
+        .footer { margin: 20px 0 50px; font-size: 11px; color: #666; text-align: center; }
+        .footer a { color: #666;}
+
+        /* SMALL */
+
+        @media (max-width: 500px) {
+            body { padding: 0; }
+            .container { padding: 20px 30px; }
+            .footer { margin-bottom: 20px; }
+        }
+    </style>
     <script>
 if (location.protocol != 'https:') {
  location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
@@ -157,7 +208,7 @@ if (location.protocol != 'https:') {
         options = {}
         options.scope = 'profile';
         options.scope_data = {
-            'profile' : {'essential': false} 
+            'profile' : {'essential': true} 
         };
         amazon.Login.authorize(options,
             'https://pnew.glitch.me/cb/ls.html');
@@ -170,11 +221,7 @@ if (location.protocol != 'https:') {
       <button class="btn btn-primary" id="login" style="margin-left: 55px; margin-right: 55px;">Login with Spotify</button>
       <br>
       <br>
-      <a href id="LoginWithAmazon">
-    <img style="margin-left: 110px" border="0" alt="Login with Amazon"
-        src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
-        width="156" height="32" />
- </a>
+      <button class="btn-auth btn-github">Sign in with <b>GitHub</b></button>
       <br>
       <br>
       <br>
