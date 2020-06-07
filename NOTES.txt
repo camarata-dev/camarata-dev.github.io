@@ -11,3 +11,12 @@ But with the Node.js staff and branding removed.
 
 Let's edit.
 
+It's a lot of code to edit, and we can do that later.
+
+Now, let's do the last part. Testing ALL of the changes.
+
+It does this page on every part. My personal site also has this.
+
+Make sure to donate to all of the sites listed.
+
+Thanks for watching! 
