@@ -2,6 +2,17 @@
 
 var session = require('express-session');
 
+var userInViews = require('./lib/middleware/userInViews');
+var authRouter = require('./routes/auth');
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
+// ..
+app.use(userInViews());
+app.use('/', authRouter);
+app.use('/', indexRouter);
+app.use('/', usersRouter);
+
 // config express-session
 var sess = {
   secret: 'process.env.AUTH0_CLIENT_SECRET',
@@ -19,6 +30,15 @@ if (app.get('env') === 'production') {
   // "Unable to verify authorization request state"
   // app.set('trust proxy', 1);
 }
+
+// You can use this section to keep a smaller payload
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
 
 // Load environment variables from .env
 var dotenv = require('dotenv');
