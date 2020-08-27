@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: tryjs.glitch.me
-Token: 6a7813856cb78b1abe209d276d2c169a45efb3772cb2d8055f987da4815ac497
